@@ -10,18 +10,7 @@ export default function hero() {
             const staffpass='12345';
 
             const createacc = () => {
-                const existingacc = accounts.find(acc => acc.username === username);
-                if (existingacc) {
-                    setmessage('username already existed');
-                }else if(username.trim()==='' || password.trim()===''){
-                    setmessage('enter valid data');
-                }
-                 else {
-                    setaccounts([...accounts, { username, password }]);
-                    setmessage('account created successfully');
-                }
-                setusername('');
-                setpassword('');
+                navigate('/acc')
             };
             const signin=()=>{
                 const account=accounts.find(acc=>acc.username === username && acc.password===password);
@@ -56,7 +45,7 @@ export default function hero() {
                 <div class="bg-[rgba(254,238,229,0.3)] backdrop-blur-[3px] rounded-lg m-auto justify-items-center grid h-[60vh] p-4 w-full min-[879px]:w-[30vw]">
                     <div class="my-auto">
                         <div class="text-center">
-                            <div class="text-center text-[1.5rem] font-serif text-black ">Sign in</div>
+                            <div class="text-center text-[1.5rem] font-serif text-black ">Sign in </div>
                             <div class="text-center mb-2 text-[1 rem] font-serif text-slate-900">use your account</div>
                             <input
                                 class="border-blue-500 border-[2px] rounded-[3px] h-10 w-52 min-[879px]:w-[17rem] text-center font-light"
@@ -69,8 +58,6 @@ export default function hero() {
                                 placeholder="enter password" value={password} onChange={(e)=>setpassword(e.target.value)} type="password"></input>
                             <p class="text-center min-[879px]:text-left text-xs font-serif"><a class="text-blue-800" href="abc">forget password?</a>
                             </p>
-                            <p class="text-center mt-2 text-xs font-serif">not your computer? use the <a
-                                class="text-blue-800" href="abc">guest mode</a></p>
                            <button onClick={signin} class="block mx-auto mt-6 text-[0.8rem] text-center font-serif border-[1.5px] h-6 w-14 bg-blue-200 rounded-[3px] border-blue-500 transform transition-transform duration-150 active:scale-95">
                                submit </button>
                         </div>
@@ -78,6 +65,7 @@ export default function hero() {
                             <p class="text-center mt-8 text-xs font-serif">don't have any account?<button onClick={createacc} 
                                 class="text-[0.8rem] text-blue-800 font-serif">create account</button></p>
                                 <p class="text-center font-medium">{message}</p>
+                               
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 export default function hero() {
   return (
     <div>
@@ -19,14 +20,14 @@ export default function hero() {
           <img src="https://i.ibb.co/LkyXWLQ/Staff.png" alt="E-Vidya" border="0" class="h-[50vh] mx-auto mt-2"></img>
         </div>
         <div class="flex justify-around">
-          <div class="h-[18vh] w-[30vw] bg-slate-500 flex transform transition-transform duration-150 active:scale-95"><p class="text-white text-2xl font-bold m-auto"><i class="fa-solid fa-id-card mr-3"></i>Take Attendance</p></div>
-          <div class="h-[18vh] w-[30vw] bg-slate-500 flex transform transition-transform duration-150 active:scale-95"><p class="text-white text-2xl font-bold m-auto"><i class="fa-solid fa-graduation-cap mr-3"></i>Scholarship Status</p></div>
-          <div class="h-[18vh] w-[30vw] bg-slate-500 flex transform transition-transform duration-150 active:scale-95"><p class="text-white text-2xl font-bold m-auto"><i class="fa-solid fa-building-columns mr-2"></i> Students Data</p></div>
+          <Link to={"/Attendance"} class="h-[18vh] w-[30vw] bg-slate-500 flex transform transition-transform duration-150 active:scale-95"><p class="text-white text-2xl font-bold m-auto"><i class="fa-solid fa-id-card mr-3"></i>Take Attendance</p></Link>
+          <Link to={"/Scholarship"} class="h-[18vh] w-[30vw] bg-slate-500 flex transform transition-transform duration-150 active:scale-95"><p class="text-white text-2xl font-bold m-auto"><i class="fa-solid fa-graduation-cap mr-3"></i>Scholarship Status</p></Link>
+          <Link to={"/Record"} class="h-[18vh] w-[30vw] bg-slate-500 flex transform transition-transform duration-150 active:scale-95"><p class="text-white text-2xl font-bold m-auto"><i class="fa-solid fa-building-columns mr-2"></i> Students Data</p></Link>
         </div>
         <div class="flex justify-around mt-2">
-          <div class="h-[18vh] w-[30vw] bg-slate-500 flex transform transition-transform duration-150 active:scale-95"><p class="text-white text-2xl font-bold m-auto"><i class="fa-solid fa-bullhorn mr-2"></i> Announcements</p></div>
-          <div class="h-[18vh] w-[30vw] bg-slate-500 flex transform transition-transform duration-150 active:scale-95"><p class="text-white text-2xl font-bold m-auto"><i class="fa-solid fa-book mr-2"></i> Study Material</p></div>
-          <div class="h-[18vh] w-[30vw] bg-slate-500 flex transform transition-transform duration-150 active:scale-95"><p class="text-white text-2xl font-bold m-auto"><i class="fa-solid fa-paper-plane mr-2"></i> Mail Box</p></div>
+          <Link to={"/Announcement"} class="h-[18vh] w-[30vw] bg-slate-500 flex transform transition-transform duration-150 active:scale-95"><p class="text-white text-2xl font-bold m-auto"><i class="fa-solid fa-bullhorn mr-2"></i> Announcements</p></Link>
+          <Link to={"/Material"} class="h-[18vh] w-[30vw] bg-slate-500 flex transform transition-transform duration-150 active:scale-95"><p class="text-white text-2xl font-bold m-auto"><i class="fa-solid fa-book mr-2"></i> Study Material</p></Link>
+          <Link to={"/Mail"} class="h-[18vh] w-[30vw] bg-slate-500 flex transform transition-transform duration-150 active:scale-95"><p class="text-white text-2xl font-bold m-auto"><i class="fa-solid fa-paper-plane mr-2"></i> Mail Box</p></Link>
         </div>
       </div>
     </div>

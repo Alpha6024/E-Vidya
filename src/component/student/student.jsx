@@ -24,8 +24,8 @@ export default function hero() {
                     <div class="h-[18vh] w-[30vw] bg-slate-500 flex transform transition-transform duration-150 active:scale-95"><p class="text-white text-2xl font-bold m-auto"><i class="fa-solid fa-building-columns mr-2"></i> Academic Score</p></div>
                 </div>
                 <div class="flex justify-around mt-2">
-                    <div class="h-[18vh] w-[30vw] bg-slate-500 flex transform transition-transform duration-150 active:scale-95"><p class="text-white text-2xl font-bold m-auto"><i class="fa-solid fa-bullhorn mr-2"></i> Announcements</p></div>
-                    <div class="h-[18vh] w-[30vw] bg-slate-500 flex transform transition-transform duration-150 active:scale-95"><p class="text-white text-2xl font-bold m-auto"><i class="fa-solid fa-book mr-2"></i> Study Material</p></div>
+                    <Link to={"/Viewann"} class="h-[18vh] w-[30vw] bg-slate-500 flex transform transition-transform duration-150 active:scale-95"><p class="text-white text-2xl font-bold m-auto"><i class="fa-solid fa-bullhorn mr-2"></i> Announcements</p></Link>
+                    <Link to={"/Viewmat"} class="h-[18vh] w-[30vw] bg-slate-500 flex transform transition-transform duration-150 active:scale-95"><p class="text-white text-2xl font-bold m-auto"><i class="fa-solid fa-book mr-2"></i> Study Material</p></Link>
                     <div class="h-[18vh] w-[30vw] bg-slate-500 flex transform transition-transform duration-150 active:scale-95"><p class="text-white text-2xl font-bold m-auto"><i class="fa-solid fa-paper-plane mr-2"></i> Mail Box</p></div>
                 </div>
             </div>

@@ -3,11 +3,15 @@ import { createRoot } from 'react-dom/client'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
+import Managereport from './component/staff/managereport.jsx'
+import ManageUpload from './component/staff/manageupload.jsx'
+import Viewmat from './component/student/viewmat.jsx'
+import Viewann from './component/student/viewann.jsx'
 import Scholarship from './component/staff/scholarship.jsx' 
 import Announcement from './component/staff/announcement.jsx' 
 import Material from './component/staff/material.jsx' 
-import Attendance from './component/staff/attendance.jsx' 
-import Mail from './component/staff/mail.jsx' 
+import Access from './component/staff/Access.jsx' 
+import Report from './component/staff/report.jsx'
 import Record from './component/staff/record.jsx' 
 import Hero from './component/hero/hero.jsx'
 import Student from './component/student/student.jsx'
@@ -33,24 +37,40 @@ const router = createBrowserRouter([
         element:<Student/>
       },
       {
+        path:"Managereport",
+        element:<Managereport/>
+      },
+      {
         path:"Record",
         element:<Record/>
       },
       {
-        path:"Mail",
-        element:<Mail/>
+        path:"Report",
+        element:<Report/>
       },
       {
         path:"Material",
         element:<Material/>
       },
       {
-        path:"Attendance",
-        element:<Attendance/>
+        path:"Access",
+        element:<Access/>
+      },
+      {
+        path:"Viewann",
+        element:<Viewann/>
+      },
+      {
+        path:"Viewmat",
+        element:<Viewmat/>
       },
       {
         path:"Scholarship",
         element:<Scholarship/>
+      },
+      {
+        path:"Manageupload",
+        element:<ManageUpload/>
       },
       {
         path:"Announcement",

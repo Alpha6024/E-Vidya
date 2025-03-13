@@ -1,75 +1,86 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
-export default function hero() {
-            const [accounts, setaccounts] = useState([]);
-            const [username, setusername] = useState('');
-            const [password, setpassword] = useState('');
-            const [message, setmessage] = useState('');
-            const navigate=useNavigate();
-            const staffusername='staff';
-            const staffpass='12345';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-            const createacc = () => {
-                navigate('/acc')
-            };
-            const signin=()=>{
-                const account=accounts.find(acc=>acc.username === username && acc.password===password);
-                if(account){
-                    setmessage('sign in successful');
-                    navigate('/Student')
-                }else if(username=== staffusername && password=== staffpass){
-                    navigate('/Staff')
-                }else{
-                    setmessage('invalid username or password');
-                }
-                setusername('');
-                setpassword('');
-            };
+const Login = () => {
+    const [enrollmentNo, setEnrollmentNo] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [message, setMessage] = useState("");
+    const navigate = useNavigate();
 
-      
+    // ✅ Student Login (Sends Request to Staff)
+    const handleStudentLogin = async () => {
+        try {
+            const response = await fetch("http://localhost:5000/studentLogin", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ enrollmentNo }),
+            });
 
-    
+            const data = await response.json();
+            setMessage(data.message);
+
+            if (data.message === "Login successful!") {
+                navigate("/Student");
+            }
+        } catch (error) {
+            console.error("Login Error:", error);
+        }
+    };
+
+    // ✅ Staff & Admin Login
+    const handleAdminStaffLogin = () => {
+        if (username === "staff" && password === "12345") {
+            navigate("/Staff");
+        } else if (username === "admin" && password === "54321") {
+            navigate("/Admin");
+        } else {
+            setMessage("Invalid Username or Password");
+        }
+    };
+
     return (
-        <div>
-            <div class="h-[10vh] flex w-full justify-between bg-slate-900">
-                <div class="flex cursor-default">
-                    <img class="h-[11vh] w-[5vw] my-auto ml-[2px]" src="https://i.ibb.co/vYhTFh4/E-Back-Logo.png" alt="E-Vidya" border="0" />
-                    <h1 class="font-bold text-2xl my-auto text-white">E-Vidya</h1>
+        <div className="min-h-screen flex flex-col items-center justify-center bg-blue-200">
+            <div className="bg-white p-6 rounded-lg shadow-md">
+                <h1 className="text-2xl font-bold mb-4">E-Vidya Login</h1>
+
+                {/* ✅ Student Login */}
+                <div className="mb-4">
+                    <input
+                        type="text"
+                        placeholder="Enter Enrollment No"
+                        value={enrollmentNo}
+                        onChange={(e) => setEnrollmentNo(e.target.value)}
+                        className="border p-2 rounded w-full"
+                    />
+                    <button onClick={handleStudentLogin} className="bg-blue-500 text-white px-4 py-2 rounded w-full mt-2">
+                        Student Login
+                    </button>
                 </div>
-                <div class="flex cursor-pointer">
-                    <button class="font-semibold h-[5vh] w-[9vw] mr-[4px] my-auto text-center border-slate-100 border-[2px] transform transition-transform duration-150 active:scale-95 rounded-sm bg-slate-200">About Us <i class="fa-solid fa-users my-auto"></i></button>
-                    <button class="font-semibold h-[5vh] w-[5vw] mr-[8px] my-auto text-center border-slate-100 border-[2px] transform transition-transform duration-150 active:scale-95 rounded-sm bg-slate-200">Help <i class="fa-solid fa-question my-auto"></i></button>
-                </div>
-            </div>
-            <div class="flex justify-center h-[90vh] bg-[rgb(123,178,251)] w-full bg-[url('https://i.ibb.co/vYhTFh4/E-Back-Logo.png')] bg-contain bg-no-repeat bg-center">
-                <div class="bg-[rgba(254,238,229,0.3)] backdrop-blur-[3px] rounded-lg m-auto justify-items-center grid h-[60vh] p-4 w-full min-[879px]:w-[30vw]">
-                    <div class="my-auto">
-                        <div class="text-center">
-                            <div class="text-center text-[1.5rem] font-serif text-black ">Sign in </div>
-                            <div class="text-center mb-2 text-[1 rem] font-serif text-slate-900">use your account</div>
-                            <input
-                                class="border-blue-500 border-[2px] rounded-[3px] h-10 w-52 min-[879px]:w-[17rem] text-center font-light"
-                                placeholder="enter username" value={username} onChange={(e)=>setusername(e.target.value)} type="text"></input>
-                            <p class="text-center min-[879px]:text-left text-xs font-serif mb-2"><a class="text-blue-800" href="abc">forget
-                                username?</a>
-                            </p>
-                            <input
-                                class="border-blue-500 border-[2px] rounded-[3px] h-10 w-52 min-[879px]:w-[17rem] text-center font-light"
-                                placeholder="enter password" value={password} onChange={(e)=>setpassword(e.target.value)} type="password"></input>
-                            <p class="text-center min-[879px]:text-left text-xs font-serif"><a class="text-blue-800" href="abc">forget password?</a>
-                            </p>
-                           <button onClick={signin} class="block mx-auto mt-6 text-[0.8rem] text-center font-serif border-[1.5px] h-6 w-14 bg-blue-200 rounded-[3px] border-blue-500 transform transition-transform duration-150 active:scale-95">
-                               submit </button>
-                        </div>
-                        <div>
-                            <p class="text-center mt-8 text-xs font-serif">don't have any account?<button onClick={createacc} 
-                                class="text-[0.8rem] text-blue-800 font-serif">create account</button></p>
-                                <p class="text-center font-medium">{message}</p>
-                               
-                        </div>
-                    </div>
-                </div>
+
+                {/* ✅ Staff/Admin Login */}
+                <input
+                    type="text"
+                    placeholder="Username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    className="border p-2 rounded w-full mb-2"
+                />
+                <input
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="border p-2 rounded w-full mb-2"
+                />
+                <button onClick={handleAdminStaffLogin} className="bg-green-500 text-white px-4 py-2 rounded w-full">
+                    Staff/Admin Login
+                </button>
+
+                <p className="mt-3 text-red-600">{message}</p>
             </div>
         </div>
     );
-}
+};
+
+export default Login;

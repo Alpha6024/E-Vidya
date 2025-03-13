@@ -20,14 +20,14 @@ export default function hero() {
           <img src="https://i.ibb.co/LkyXWLQ/Staff.png" alt="E-Vidya" border="0" class="h-[50vh] mx-auto mt-2"></img>
         </div>
         <div class="flex justify-around">
-          <Link to={"/Attendance"} class="h-[18vh] w-[30vw] bg-slate-500 flex transform transition-transform duration-150 active:scale-95"><p class="text-white text-2xl font-bold m-auto"><i class="fa-solid fa-id-card mr-3"></i>Take Attendance</p></Link>
-          <Link to={"/Scholarship"} class="h-[18vh] w-[30vw] bg-slate-500 flex transform transition-transform duration-150 active:scale-95"><p class="text-white text-2xl font-bold m-auto"><i class="fa-solid fa-graduation-cap mr-3"></i>Scholarship Status</p></Link>
+          <Link to={"/Access"} class="h-[18vh] w-[30vw] bg-slate-500 flex transform transition-transform duration-150 active:scale-95"><p class="text-white text-2xl font-bold m-auto"><i class="fa-solid fa-id-card mr-3"></i>Manage Access</p></Link>
+          <Link to={"/Scholarship"} class="h-[18vh] w-[30vw] bg-slate-500 flex transform transition-transform duration-150 active:scale-95"><p class="text-white text-2xl font-bold m-auto"><i class="fa-solid fa-graduation-cap mr-3"></i>Fees Status</p></Link>
           <Link to={"/Record"} class="h-[18vh] w-[30vw] bg-slate-500 flex transform transition-transform duration-150 active:scale-95"><p class="text-white text-2xl font-bold m-auto"><i class="fa-solid fa-building-columns mr-2"></i> Students Data</p></Link>
         </div>
         <div class="flex justify-around mt-2">
           <Link to={"/Announcement"} class="h-[18vh] w-[30vw] bg-slate-500 flex transform transition-transform duration-150 active:scale-95"><p class="text-white text-2xl font-bold m-auto"><i class="fa-solid fa-bullhorn mr-2"></i> Announcements</p></Link>
           <Link to={"/Material"} class="h-[18vh] w-[30vw] bg-slate-500 flex transform transition-transform duration-150 active:scale-95"><p class="text-white text-2xl font-bold m-auto"><i class="fa-solid fa-book mr-2"></i> Study Material</p></Link>
-          <Link to={"/Mail"} class="h-[18vh] w-[30vw] bg-slate-500 flex transform transition-transform duration-150 active:scale-95"><p class="text-white text-2xl font-bold m-auto"><i class="fa-solid fa-paper-plane mr-2"></i> Mail Box</p></Link>
+          <Link to={"/Report"} class="h-[18vh] w-[30vw] bg-slate-500 flex transform transition-transform duration-150 active:scale-95"><p class="text-white text-2xl font-bold m-auto"><i class="fa-solid fa-paper-plane mr-2"></i>Student Report</p></Link>
         </div>
       </div>
     </div>

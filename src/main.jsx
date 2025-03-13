@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
+import Admin from './component/admin/admin.jsx'
 import Managereport from './component/staff/managereport.jsx'
 import ManageUpload from './component/staff/manageupload.jsx'
 import Viewmat from './component/student/viewmat.jsx'
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path:"Student",
         element:<Student/>
+      },
+      {
+        path:"Admin",
+        element:<Admin/>
       },
       {
         path:"Managereport",

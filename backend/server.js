@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const multer = require("multer");
 const path = require("path");
-
+require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -13,12 +13,18 @@ app.use(express.json());
 app.use("/uploads", express.static("uploads")); // Serve uploaded files
 
 // ✅ MongoDB Connection
-mongoose
-mongoose.connect("mongodb+srv://Developer1:passwordmine@e-vidya.juvd2cu.mongodb.net/", {
+require('dotenv').config(); // Load .env variables
+
+const dbUser = process.env.DB_USER;
+const dbPass = process.env.DB_PASS;
+const dbName = process.env.DB_NAME;
+
+const mongoURI = `mongodb+srv://${dbUser}:${dbPass}@e-vidya.juvd2cu.mongodb.net/${dbName}?retryWrites=true&w=majority`;
+
+mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
-
   .then(() => console.log("✅ MongoDB Connected"))
   .catch((err) => console.error("❌ MongoDB Connection Error:", err));
 

@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 
 import Login from './component/admin/loginad.jsx'
-import StudentRepo from './component/student/StudentRepo.jsx'
+import StudentRepo from './component/student/studentRepo.jsx'
 import Updatep from './component/admin/Updatep.jsx'
 import Placement from './component/student/placement.jsx'
 import Admin from './component/admin/admin.jsx'
